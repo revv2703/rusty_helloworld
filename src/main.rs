@@ -19,13 +19,25 @@ fn take_input() -> i32 {
 
 fn random_num() {
     let stdin = take_input();
-    let num = gen_random();
-    if num == stdin{
-        println!("\nCorrect Guess. :)\n\nThe number is: {}", stdin);
-    }
-    else{
-        println!("\nIncorrect guess. :(\n\nYou guessed: {}\nThe number was: {}\n", stdin, num)
-    }
+    let _num = gen_random();
+    // the compiler gives warnings when any unused variables are found. remove this error by inserting "_" at the beginning of the variable.
+
+
+    // if num == stdin{
+    //     println!("\nCorrect Guess. :)\n\nThe number is: {}", stdin);
+    // }
+    // else{
+    //     println!("\nIncorrect guess. :(\n\nYou guessed: {}\nThe number was: {}\n", stdin, num)
+    // }
+
+    
+    // Match statement:
+
+    // let is_equal = stdin == num;
+    // match is_equal {
+    //     true => println!("\nCorrect Guess. :)\n\nThe number is: {}", stdin),
+    //     false => println!("\nIncorrect guess. :(\n\nYou guessed: {}\nThe number was: {}\n", stdin, num)
+    // }
 }
 
 fn main() {
@@ -33,5 +45,18 @@ fn main() {
     // let tup = ("hello", 19, true); // Tuple
     // println!("{:?}", tup); // How you print a variable
     // dbg!(tup); // Used for dirty debugging -> don't know what it means... meh
-    random_num();
+    // random_num();
+
+    // let x = {
+    //     let y = 10;
+    //     let z = 15;
+    //     y + z
+    // };
+    // println!("{}", x);  // Cannot access y and z variables
+    // loop {println!("loop exec");} // more like while(true) loop
+
+
+    // let var = "helloworld";
+    // println!("\nLength of the string \"{}\" is: {}\n", var, var.len());
+    // println!("{}", tup.0.len());  // can access elements on i index by using "." followed by the index.
 }
