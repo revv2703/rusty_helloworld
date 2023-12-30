@@ -33,11 +33,18 @@ fn random_num() {
     
     // Match statement:
 
-    // let is_equal = stdin == num;
-    // match is_equal {
-    //     true => println!("\nCorrect Guess. :)\n\nThe number is: {}", stdin),
-    //     false => println!("\nIncorrect guess. :(\n\nYou guessed: {}\nThe number was: {}\n", stdin, num)
-    // }
+    let is_equal = stdin == _num;
+    match is_equal {
+        true => println!("\nCorrect Guess. :)\n\nThe number is: {}", stdin),
+        false => println!("\nIncorrect guess. :(\n\nYou guessed: {}\nThe number was: {}\n", stdin, _num),
+        _ => println!("Some error that can never be encountered.")
+    }
+    // The match has to be exhaustive, i.e. the value provided must match one value, to handle no match, "_" is used
+}
+
+struct Rusty{   // Start a struct name with capital
+    is_rust: bool,
+    is_awesome: bool
 }
 
 fn main() {
@@ -59,4 +66,10 @@ fn main() {
     // let var = "helloworld";
     // println!("\nLength of the string \"{}\" is: {}\n", var, var.len());
     // println!("{}", tup.0.len());  // can access elements on i index by using "." followed by the index.
+
+    // Declare a stucture
+    // let var = Rusty{is_rust: true, is_awesome: true};    //  The order of assigning values to the variables inside the struct doesn't matter
+    // println!("isRust: {}\nisAwewsome: {}", var.is_rust, var.is_awesome);
+
+
 }
