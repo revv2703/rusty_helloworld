@@ -20,7 +20,7 @@ fn take_input() -> i32 {
 fn random_num() {
     let stdin = take_input();
     let _num = gen_random();
-    // the compiler gives warnings when any unused variables are found. remove this error by inserting "_" at the beginning of the variable.
+    // the compiler gives warnings when any unused variables or functions or anything are found. remove this error by inserting "_" at the beginning of the variable.
 
 
     // if num == stdin{
@@ -47,6 +47,16 @@ struct Rusty{   // Start a struct name with capital
     is_awesome: bool
 }
 
+impl Rusty{
+    fn boo(){
+        println!("Boo!");
+    }
+    fn check_rust(&self){
+        if self.is_rust == true {println!("Is Rust");}  // Need parenthesis
+    }
+}
+// 5:10
+
 fn main() {
     // println!("Hello, world!\n");
     // let tup = ("hello", 19, true); // Tuple
@@ -70,6 +80,20 @@ fn main() {
     // Declare a stucture
     // let var = Rusty{is_rust: true, is_awesome: true};    //  The order of assigning values to the variables inside the struct doesn't matter
     // println!("isRust: {}\nisAwewsome: {}", var.is_rust, var.is_awesome);
+
+    // mut  ->  The "mut" keyword allows for the user to change variable values after its assignment. Even vectors.
+
+    // let mut v1 = Vec::new();    // Returns error as there is no type for the variable.
+    // v1.push(1); // Doesn't return any error after this line of code.
+    // println!("{}", v1[0]);
+
+    // let mut v1 = vec![true, false];
+    // println!("{}", v1[0]);
+    // Can reinitialize variable with the same name and/or different type.
+
+    // Panic
+    panic!("Oh no!!\nI panicked!!!");   // panic violently stops execution of code.
+
 
 
 }
