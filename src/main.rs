@@ -1,5 +1,7 @@
+use colored::Colorize;
 use rand::Rng;
 use std::io;
+use std::str;
 
 fn gen_random() -> i32 {
     return rand::thread_rng().gen_range(0..10);
@@ -35,8 +37,8 @@ fn random_num() {
 
     let is_equal = stdin == _num;
     match is_equal {
-        true => println!("\nCorrect Guess. :)\n\nThe number is: {}", stdin),
-        false => println!("\nIncorrect guess. :(\n\nYou guessed: {}\nThe number was: {}\n", stdin, _num),
+        true => println!("\nCorrect Guess. :)\n\nThe number is: {}", stdin.to_string().green()),
+        false => println!("\nIncorrect guess. :(\n\nYou guessed: {}\nThe number was: {}\n", stdin, _num.to_string().red()),
         _ => println!("Some error that can never be encountered.")
     }
     // The match has to be exhaustive, i.e. the value provided must match one value, to handle no match, "_" is used
@@ -55,14 +57,37 @@ impl Rusty{
         if self.is_rust == true {println!("Is Rust");}  // Need parenthesis
     }
 }
-// 5:10
+
+
+// Another implementation of panic
+enum Option<T> {
+    None,
+    Some(T)
+}
+
+impl<T> Option<T> {
+    fn unwrap(self) -> T {
+        match self{
+            Self::Some(t) => t,
+            Self::None => panic!("Panic!!")
+        }
+    }
+}
+
+enum Result<T, E> {
+    Ok(T),
+    Err(E)
+}
+
+
+
 
 fn main() {
     // println!("Hello, world!\n");
     // let tup = ("hello", 19, true); // Tuple
     // println!("{:?}", tup); // How you print a variable
     // dbg!(tup); // Used for dirty debugging -> don't know what it means... meh
-    // random_num();
+    random_num();
 
     // let x = {
     //     let y = 10;
@@ -92,8 +117,58 @@ fn main() {
     // Can reinitialize variable with the same name and/or different type.
 
     // Panic
-    panic!("Oh no!!\nI panicked!!!");   // panic violently stops execution of code.
+    // panic!("Oh no!!\nI panicked!!!");   // panic violently stops execution of code.
+
+    // let o1: std::option::Option<i32> = Some(128);
+    // o1.unwrap();
+
+    // let o2: std::option::Option<i32> = None;
+    // o2.unwrap();     // As "None" is found, the program panics.
 
 
+    // Expect keyword that returns panic
+    // let s = str::from_utf8(&[195, 40]).expect("Valid utf-8");
 
+    // Same thing can be done using match
+    // let melon = &[240, 159, 141, 137];
+    // match std::str::from_utf8(melon){
+        // Ok(s) => println!("{}", s),
+        // Err(e) => panic!("Invalid UTF-8 sequence: {}", e)
+    // }
+
+    // OR
+    
+    // let s = str::from_utf8(melon)?;
+    // println!("{}", s);
+    // Doesn't work for some reason
+
+    // same thing using "if let"
+    // if let Ok(s) = str::from_utf8(melon){
+        // println!("{}", s);
+    // }
+
+
+    // Iterators
+    // let natural_nos = 1..;  // 1 or greater than 1
+    // println!("{:?}", natural_nos);
+    // let ans = (0..).contains(&100);
+    // println!("{}", ans);
+    // (..=20).contains(&20);  // <=20
+    // (3..6).contains(&4);    // 3, 4, 5
+    // let num1 = 1;let num2 = 5;
+    // println!("{}", (num1..num2).contains(&3));   // can do the same with variables
+
+    // for loop
+    // for i in vec![1, 2, 3]{
+    //     println!("The number is: {}", i);
+    // }
+    // for c in "rust".chars(){
+    //     println!("The character is: {}", c);
+    // }
+    // for c in "SuRPRISE INbOUND".chars().filter(|c| c.is_lowercase()).flat_map(|c| c.to_uppercase()){
+    //     print!("{}", c);
+    // }
+
+
+    
 }
