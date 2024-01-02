@@ -84,10 +84,79 @@ enum Result<T, E> {
 
 fn main() {
     // println!("Hello, world!\n");
-    // let tup = ("hello", 19, true); // Tuple
-    // println!("{:?}", tup); // How you print a variable
+
+    // Data types:
+
+    // Scalar types:
+
+    // -Integers
+    // let a = 98_322; // decimal
+    // let b = 0xff;   // hex
+    // let c = 0o77;   // octal
+    // let d = 0b1111_0000;    // binary
+    // let e = b'A';   // byte(u8 only)
+    // if overflow, rust panicks, but in production (var%(int_length)), e.g. let f = 257 becomes 1
+
+
+    // -Floating points
+    // let f = 2.0;
+    // let g: f32 = 3.0;
+
+
+    // -Boolean
+    // -Char
+
+
+    // Compound types:
+
+    // -Tuple
+    // let tup = ("hello", 19, true);
+    // let (string, num, truth) = tup; // To extract value from a tuple
+    // let string = tup.0;  // another way
+
+
+    // -List
+    // let lst = [100, 200, 300];
+    // let byte = [0;8];   // this generates 8 "0" values in a list
+
+
+    // Control flow
+    // - if, if else, else
+
+    // - loop
+    // let mut count = 0;
+    // let result = loop{
+    //     count+=1;
+    //     if count == 5{
+    //         break count;
+    //     }
+    // };
+    // print!("{}", result);
+    // Loop can also be assigned to a variable that returns a value
+
+    // - while
+
+    // - for
+    // let a = [1,2,3,4,5];
+    // for el in a.iter(){println!("The element is: {}", el)};
+    // for i in 1..5{println!("The number is: {}", i)} // same as python, 1 to 4 will be printed
+
+
+
+    // Line comment
+    /*
+        Block comment
+     */
+
+
+
+
+    // let tup = ("hello", 19, true);
+    // println!("{:?}", tup);
     // dbg!(tup); // Used for dirty debugging -> don't know what it means... meh
-    random_num();
+
+    // Random number game(pretty useless this is)
+    // random_num();
 
     // let x = {
     //     let y = 10;
@@ -168,7 +237,4 @@ fn main() {
     // for c in "SuRPRISE INbOUND".chars().filter(|c| c.is_lowercase()).flat_map(|c| c.to_uppercase()){
     //     print!("{}", c);
     // }
-
-
-    
 }
