@@ -2,6 +2,8 @@ use colored::Colorize;
 use rand::Rng;
 use std::io;
 use std::str;
+mod ownership;
+
 
 fn gen_random() -> i32 {
     return rand::thread_rng().gen_range(0..10);
@@ -237,4 +239,7 @@ fn main() {
     // for c in "SuRPRISE INbOUND".chars().filter(|c| c.is_lowercase()).flat_map(|c| c.to_uppercase()){
     //     print!("{}", c);
     // }
+
+    ownership::ownership_fn();
+    // This is how u import a function from different file. mod filename
 }
