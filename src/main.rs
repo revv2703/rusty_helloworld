@@ -4,6 +4,7 @@ mod ownership;
 mod structure;
 mod panic;
 mod enums;
+use helloworld::hello;
 
 
 fn main() {
@@ -14,5 +15,6 @@ fn main() {
     // ownership::ownership_fn();
     // structure::main();
     // panic::main();
-    enums::main();
+    // enums::main();
+    // hello::hello();
 }
