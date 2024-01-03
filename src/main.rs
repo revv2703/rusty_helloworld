@@ -3,6 +3,7 @@ mod random_num;
 mod ownership;
 mod structure;
 mod panic;
+mod enums;
 
 
 fn main() {
@@ -11,6 +12,7 @@ fn main() {
     // helloworld::main();
     // random_num::main();
     // ownership::ownership_fn();
-    structure::main();
+    // structure::main();
     // panic::main();
+    enums::main();
 }
