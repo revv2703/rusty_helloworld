@@ -4,6 +4,7 @@ mod ownership;
 mod structure;
 mod panic;
 mod enums;
+mod collections;
 use helloworld::hello;
 
 
@@ -17,4 +18,5 @@ fn main() {
     // panic::main();
     // enums::main();
     // hello::hello();
+    collections::main();
 }
