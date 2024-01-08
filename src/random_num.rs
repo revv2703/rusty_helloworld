@@ -13,12 +13,27 @@ fn take_input() -> u32 {
     println!("Enter an integer: ");
     io::stdin().read_line(&mut input).expect("Failed to read line");
 
-    let input: u32 = input.trim().parse().expect("Invalid input. Please type a number.");
+    // Handling the user not entering a number within the scope
+    let input = match input.trim().parse(){
+        Ok(num) => {
+            if num < 1 || num > 10{
+                println!("Please enter a number between 1 and 10.");
+                take_input()
+            }
+            else{
+                num
+            }
+        },
+        Err(_) => {
+            println!("Invalid input. Please type a number.");
+            take_input()
+        }
+    };
 
     input
 }
 
-fn random_num() {
+pub fn random_num() {
 
     let _num: u32 = gen_random();
 
@@ -50,9 +65,13 @@ fn random_num() {
         match stdin.cmp(&_num){
             Ordering::Less => println!("{} {} {}", "Your guess".red(), stdin, "is lower than the number.".red()),
             Ordering::Greater => println!("{} {} {}", "Your guess".red(), stdin, "is higher than the number.".red()),
-            Ordering::Equal => println!("{} {} {}", "Your guess".green(), stdin, "is correct.\n\nU WIN!!".green())
+            Ordering::Equal => {
+                println!("{} {}", "Your guess".green(), "is correct.\n\nU WIN!!".green());
+                break
+            }
         }
     }
+    println!("The number was: {}", _num);
 
 
     //* Match statement(typical):
@@ -63,10 +82,4 @@ fn random_num() {
     //     _ => println!("Some error that can never be encountered.")
     // }
     // The match has to be exhaustive, i.e. the value provided must match one value, to handle no match, "_" is used
-}
-
-pub fn main(){
-
-    // Random number game(pretty useless this is)
-    random_num();
 }
