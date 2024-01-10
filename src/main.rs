@@ -7,6 +7,7 @@ mod enums;
 mod collections;
 mod error_handling;
 mod generic;
+mod traits;
 use helloworld::hello;
 
 
@@ -22,5 +23,6 @@ fn main() {
     // hello::hello();
     // collections::main();
     // error_handling::main();
-    generic::main();
+    // generic::main();
+    traits::main();
 }
