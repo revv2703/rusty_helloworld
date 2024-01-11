@@ -8,6 +8,7 @@ mod collections;
 mod error_handling;
 mod generic;
 mod traits;
+mod lifetimes;
 use helloworld::hello;
 
 
@@ -24,5 +25,6 @@ fn main() {
     // collections::main();
     // error_handling::main();
     // generic::main();
-    traits::main();
+    // traits::main();
+    lifetimes::main();
 }
