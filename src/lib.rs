@@ -1,6 +1,7 @@
 mod structure;
 
 pub fn adds_two(a: i32) -> i32{
+    println!("The value passed: {}", a);    // The print statement only shows up for failed tests. To sohow the print statement for passed tests also, pass "cargo test -- --show-output"
     a + 2
 }
 
@@ -14,10 +15,10 @@ mod tests {
         assert_eq!(result, 4);
     }
 
-    #[test]
-    fn failed_test() {
-        panic!("Make this test fail");
-    }
+    // #[test]
+    // fn failed_test() {
+    //     panic!("Make this test fail");
+    // }
 
     #[test]
     fn larger_can_fit_smaller(){
@@ -31,7 +32,7 @@ mod tests {
         };
 
         assert!(larger.can_hold(&smaller));
-        assert!(smaller.can_hold(&larger), "The first rectangle: {:#?} cannot store the other one: {:#?}", smaller, larger);
+        assert!(!smaller.can_hold(&larger), "The first rectangle: {:#?} cannot store the other one: {:#?}", smaller, larger);
         // If one fails, the test fails
     }
 
@@ -45,5 +46,19 @@ mod tests {
     fn it_should_panic(){
         panic!("Make this test fail");
         // panic!("Make this fail");    the test will fail even after the "should panic", because the expected panic message is: "Make this test fail", any other panic message returned counts as a fail
+    }
+
+    // Run specific tests using "cargo test test_name"
+    // If multiple functions run with same subname, use "cargo test common_subname"
+    // Run tests from different modules using "cargo test module_name::"
+
+
+    #[test]
+    #[ignore]
+    fn expensive_test(){
+        // This test will run only when "cargo test -- --ignored" is run
+        // To run only ignored ones, and run them sequentially, use "cargo test -- --ignored --test-threads=1"
+        // To run only ignored ones, and run them sequentially, and show output, use "cargo test -- --ignored --test-threads=1 --show-output"
+        assert!(true);
     }
 }
