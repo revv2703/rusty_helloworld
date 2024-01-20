@@ -9,6 +9,7 @@ mod error_handling;
 mod generic;
 mod traits;
 mod lifetimes;
+mod closures;
 use helloworld::hello;
 
 
@@ -27,4 +28,5 @@ fn main() {
     // generic::main();
     // traits::main();
     // lifetimes::main();
+    closures::main();
 }
