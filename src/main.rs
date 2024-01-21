@@ -10,6 +10,7 @@ mod generic;
 mod traits;
 mod lifetimes;
 mod closures;
+mod iters;
 use helloworld::hello;
 
 
@@ -28,5 +29,6 @@ fn main() {
     // generic::main();
     // traits::main();
     // lifetimes::main();
-    closures::main();
+    // closures::main();
+    iters::main();
 }
