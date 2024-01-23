@@ -1,5 +1,14 @@
+//! # Rusty Helloworld
+//!
+//! `rusty_helloworld` is a collection of code that I have written over my journey of learning Rust.
+
 mod structure;
 mod iters;
+
+pub use self::kinds::PrimaryColor;
+pub use self::kinds::SecondaryColor;
+pub use self::utils::mix;
+
 
 pub fn adds_two(a: i32) -> i32{
     println!("The value passed: {}", a);    // The print statement only shows up for failed tests. To sohow the print statement for passed tests also, pass "cargo test -- --show-output"
@@ -126,4 +135,49 @@ mod tests {
     //     assert_eq!(18, sum);
     // }
     // Messed up test(to be fixed)
+}
+
+
+//* Documenting a function
+/// Adds one to the given number
+/// 
+/// # Examples
+/// 
+/// ```
+/// let arg = 5;
+/// let ans = rusty_helloworld::add_one(arg);
+/// 
+/// assert_eq!(6, ans);
+/// ```
+pub fn add_one(x: i32) -> i32{
+    x + 1
+}
+
+
+/*
+//! # Art
+//! 
+//! A library for modelling artistic concepts.
+*/
+
+pub mod kinds{
+    /// The primary colors according to the RYB color model
+    pub enum PrimaryColor{
+        Red, Yellow, Blue
+    }
+    
+    /// The secondary colors accoding to the RYB color model
+    pub enum SecondaryColor{
+        Orange, Green, Purple
+    }
+}
+pub mod utils{
+    use crate::kinds::*;
+    /// Combines two PrimaryColors into one in equal amounts to create a secondary color.
+    
+    pub fn mix(c1: PrimaryColor, c2: PrimaryColor) -> SecondaryColor{
+        //  ANCHOR_END: here
+        SecondaryColor::Orange
+        // ANCHOR: here
+    }
 }

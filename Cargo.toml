@@ -1,8 +1,11 @@
 [package]
 name = "rusty_helloworld"
 version = "0.1.0"
+authors = ["revv"]
 edition = "2021"
 default-run = "rusty_helloworld"
+description = "Mastering Rust, step by playful step.Rusty_Helloworld is your one-stop shop for exploring the diverse landscape of Rust through practical examples. Whether you're a beginner diving into basic concepts or an intermediate looking to solidify your understanding, this crate offers a unique learning experience with code that resonates."
+license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

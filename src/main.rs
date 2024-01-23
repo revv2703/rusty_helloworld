@@ -12,6 +12,8 @@ mod lifetimes;
 mod closures;
 mod iters;
 use helloworld::hello;
+use rusty_helloworld::PrimaryColor;
+use rusty_helloworld::mix;
 
 
 fn main() {
@@ -30,5 +32,10 @@ fn main() {
     // traits::main();
     // lifetimes::main();
     // closures::main();
-    iters::main();
+    // iters::main();
+
+
+    let red = PrimaryColor::Red;
+    let yellow = PrimaryColor::Yellow;
+    mix(red, yellow);
 }
